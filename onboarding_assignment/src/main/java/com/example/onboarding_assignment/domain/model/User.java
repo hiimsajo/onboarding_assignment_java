@@ -3,6 +3,7 @@ package com.example.onboarding_assignment.domain.model;
 import static com.example.onboarding_assignment.domain.model.UserRole.USER;
 
 import com.example.onboarding_assignment.domain.common.AuditingFields;
+import com.example.onboarding_assignment.presentation.dto.requestDto.SignUpRequestDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -39,16 +40,17 @@ public class User extends AuditingFields {
   @Column(nullable = false)
   private String password;
 
+  @Builder.Default
   @Column(nullable = false)
   @Enumerated(EnumType.STRING)
   private UserRole userRole = USER;
 
-  public static User createUser(String username, String nickname, String password, UserRole userRole) {
+  public static User from(SignUpRequestDto requestDto, String encodedPassword) {
     return User.builder()
-        .username(username)
-        .nickname(nickname)
-        .password(password)
-        .userRole(userRole)
+        .username(requestDto.getUsername())
+        .nickname(requestDto.getNickname())
+        .password(encodedPassword)
+        .userRole(USER)
         .build();
   }
 
