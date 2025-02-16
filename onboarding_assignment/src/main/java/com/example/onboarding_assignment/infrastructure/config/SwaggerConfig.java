@@ -13,9 +13,9 @@ import io.swagger.v3.oas.models.servers.Server;
 @Configuration
 @OpenAPIDefinition(
     info = @Info(
-        title = "auth, user API",
-        version = "v3",
-        description = "auth, user API 입니다"
+        title = "Onboarding 과제: USER API",
+        version = "v1",
+        description = "회원가입과 로그인 API 입니다"
     )
 )
 public class SwaggerConfig {
@@ -35,6 +35,6 @@ public class SwaggerConfig {
     return new OpenAPI()
         .components(new Components().addSecuritySchemes("Bearer Token", apiKey))
         .addSecurityItem(securityRequirement)
-        .addServersItem(new Server().url("/")); // CORS 및 Swagger 서버 경로 설정
+        .addServersItem(new Server().url("http://localhost:8080")); // CORS 및 Swagger 서버 경로 설정
   }
 }

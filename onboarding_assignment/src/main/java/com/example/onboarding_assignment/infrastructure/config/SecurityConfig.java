@@ -63,7 +63,7 @@ public class SecurityConfig {
         .sessionManagement(sm -> sm.sessionCreationPolicy(
             SessionCreationPolicy.STATELESS)) // 세션 비활성화
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/users/signup", "/users/sign", "/swagger/auth/v3/api-docs").permitAll() // 로그인 URL 허용
+            .requestMatchers("/users/signup", "/users/sign", "/swagger/**", "/swagger-ui.html", "/swagger-ui/**").permitAll() // 로그인 URL 허용
             .requestMatchers("/users/modifyRole").hasAuthority("ADMIN") // 사용자 목록조회는 관리자 권한만 가능
             .anyRequest().authenticated() // 나머지는 인증 필요
         )
