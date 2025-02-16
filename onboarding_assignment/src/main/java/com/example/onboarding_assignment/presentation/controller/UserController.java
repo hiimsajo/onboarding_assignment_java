@@ -1,9 +1,15 @@
 package com.example.onboarding_assignment.presentation.controller;
 
+import com.example.onboarding_assignment.application.service.AuthService;
 import com.example.onboarding_assignment.application.service.UserService;
-import com.example.onboarding_assignment.domain.model.User;
+import com.example.onboarding_assignment.presentation.dto.requestDto.LogInRequestDto;
 import com.example.onboarding_assignment.presentation.dto.requestDto.SignUpRequestDto;
 import com.example.onboarding_assignment.presentation.dto.responseDto.UserResponseDto;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,16 +20,35 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/users")
+@Tag(name = "User", description = "유저 관련 API")
 public class UserController {
 
   private final UserService userService;
+  private final AuthService authService;
 
   @PostMapping("/signup")
-  public ResponseEntity<UserResponseDto> createUser(@RequestBody SignUpRequestDto requestDto){
+  @Operation(summary = "회원가입", description = "회원가입입니다.")
+  public ResponseEntity<UserResponseDto> createUser(@RequestBody @Parameter(description = "정보를 입력해주세요")
+  SignUpRequestDto requestDto){
     UserResponseDto user = userService.createUser(requestDto);
     return ResponseEntity.ok(user);
   }
 
+  @PostMapping("/sign")
+  @Operation(summary = "로그인", description = "로그인입니다.")
+  public ResponseEntity<Map<String, String>> login(@RequestBody @Valid @Parameter(description = "정보를 입력해주세요")
+  LogInRequestDto logInRequestDto) {
+    // 로그인 로직
+    String token = authService.login(logInRequestDto);
 
+    // 응답 헤더에 토큰 추가
+    String bearerToken = "Bearer " + token;
+
+    // 응답 바디에 토큰값 반환
+    Map<String, String> responseData = Map.of("token", token);
+
+    // ResponseEntity로 반환
+    return ResponseEntity.ok(responseData);
+  }
 
 }
