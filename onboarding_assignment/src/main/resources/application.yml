@@ -15,3 +15,11 @@ spring:
       url: ${DB_URL}
       username: ${DB_USERNAME}
       password: ${DB_PASSWORD}
+
+logging:
+  level:
+    com.example.onboarding_assignment: DEBUG
+    com.example.onboarding_assignment.infrastructure.jwt.JwtTokenizer: DEBUG
+    com.example.onboarding_assignment.application.service.AuthService: DEBUG
+    com.example.onboarding_assignment.application.service.UserService: DEBUG
+    com.example.onboarding_assignment.presentation.controller.UserController: DEBUG
