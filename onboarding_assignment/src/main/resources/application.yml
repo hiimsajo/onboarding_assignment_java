@@ -16,10 +16,16 @@ spring:
       username: ${DB_USERNAME}
       password: ${DB_PASSWORD}
 
+service:
+  jwt:
+    access-expiration: 86400000  # 24시간
+    secret-key: ${secret-key}  # Base64로 인코딩된 시크릿 키
+
 logging:
   level:
     com.example.onboarding_assignment: DEBUG
-    com.example.onboarding_assignment.infrastructure.jwt.JwtTokenizer: DEBUG
-    com.example.onboarding_assignment.application.service.AuthService: DEBUG
-    com.example.onboarding_assignment.application.service.UserService: DEBUG
-    com.example.onboarding_assignment.presentation.controller.UserController: DEBUG
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /swagger/auth/v3/api-docs
