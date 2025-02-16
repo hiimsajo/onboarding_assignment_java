@@ -3,8 +3,9 @@
 
 회원가입과 로그인 기능 개발
 
-- 회원가입("/users/signup")
-  requestBody
+1. 회원가입("/users/signup")
+  
+- requestBody
 ```
 {
   "username": "string",
@@ -12,7 +13,7 @@
   "password": "string"
 }
 ```
-responseBody
+- responseBody
 ```
 {
   "username": "string",
@@ -25,22 +26,26 @@ responseBody
 }
 ```
 
--로그인("/users/sign")
-requestBody
+
+2. 로그인("/users/sign")
+
+- requestBody
 ```
 {
   "username": "string",
   "password": "string"
 }
 ```
-responseBody
+- responseBody
 ```
 {
  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6IlJPTEVfZ2FtamFMb3ZlciIsInN1YiI6IlVTRVIiLCJpYXQiOjE3Mzk3MjQzNDYsImV4cCI6MTczOTgxMDc0Nn0.5DK1KH10KS5jij4ZFpiDaq9lIAmuzl5XmBCzqNyvXQo"
 }
 ```
 
-Swagger UI 페이지(http://localhost:8080/swagger-ui/index.html)
+
+3. Swagger UI 페이지(http://localhost:8080/swagger-ui/index.html)
+   
 ![image](https://github.com/user-attachments/assets/ffa26e94-2160-467e-a74d-5f71b5983782)
 ![image](https://github.com/user-attachments/assets/6b902b01-bbc8-4a56-a1a8-aa456c83581e)
 ![image](https://github.com/user-attachments/assets/51c3096e-e747-4736-942a-91c27f7edbe5)
