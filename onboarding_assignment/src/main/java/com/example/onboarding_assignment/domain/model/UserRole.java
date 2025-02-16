@@ -8,5 +8,10 @@ import lombok.RequiredArgsConstructor;
 public enum UserRole {
 
   USER,
-  MASTER
+  ADMIN;
+
+  // 권한문자열 메서드
+  public String getAuthority() {
+    return name();
+  }
 }
