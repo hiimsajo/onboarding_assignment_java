@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: onboarding_assignment
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      show-sql: true
+      format-sql: true
+      use_sql_comments: true
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb  # 인메모리 H2 데이터베이스
+    username: sa
+    password:
+
+    h2:
+      console:
+        enabled: true
+        path: /h2-console
+
+service:
+  jwt:
+    access-expiration: 86400000  # 24시간
+    secret-key: UGU5T2o4VTZObEFXRVJsS1ppc0pDS1RSSW00VVBLQ1JnMm5GamxBeTNVbURTd0FxOGorRlNuZWpWcGFxbTZCVA==
+  # Base64로 인코딩된 시크릿 키
+
+logging:
+  level:
+    com.example.onboarding_assignment: DEBUG
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /swagger/auth/v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html   # Swagger UI 경로 설정
+    operations-sorter: method # HTTP 메서드 순서 정렬
+    tags-sorter: alpha       # 태그 알파벳순 정렬
