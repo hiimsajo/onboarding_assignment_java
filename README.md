@@ -44,7 +44,7 @@
 ```
 
 
-3. Swagger UI 페이지(http://localhost:8080/swagger-ui/index.html)
+3. Swagger UI 페이지(http://13.209.74.95:8080/swagger-ui/index.html) 이 주소로 확인 및 테스트 가능
    
 ![image](https://github.com/user-attachments/assets/ffa26e94-2160-467e-a74d-5f71b5983782)
 ![image](https://github.com/user-attachments/assets/6b902b01-bbc8-4a56-a1a8-aa456c83581e)
