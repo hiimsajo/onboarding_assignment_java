@@ -49,7 +49,7 @@
 3. 접근권한 부여(권한 없을 시 예외)("/users/admin/{userId}/roles")
   ![접근권한없음](https://github.com/user-attachments/assets/7e3977a1-176d-4dc4-8e99-1bcdfdd2d908)
 - responseBody
-  ```
+```
   {
     "error": {
         "code": "ACCESS_DENIED",
