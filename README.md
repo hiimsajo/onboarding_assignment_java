@@ -46,8 +46,20 @@
 }
 ```
 
+3. 접근권한 부여(권한 없을 시 예외)("/users/admin/{userId}/roles")
+  ![접근권한없음](https://github.com/user-attachments/assets/7e3977a1-176d-4dc4-8e99-1bcdfdd2d908)
+- responseBody
+  ```
+  {
+    "error": {
+        "code": "ACCESS_DENIED",
+        "message": "관리자 권한이 필요한 요청입니다. 접근 권한이 없습니다."
+    }
+}
+```
 
-3. Swagger UI 페이지(http://13.209.74.95:8080/swagger-ui/index.html) 이 주소로 확인 및 테스트 가능
+
+4. Swagger UI 페이지(http://13.209.74.95:8080/swagger-ui/index.html) 이 주소로 확인 및 테스트 가능
    
 ![image](https://github.com/user-attachments/assets/ffa26e94-2160-467e-a74d-5f71b5983782)
 ![image](https://github.com/user-attachments/assets/6b902b01-bbc8-4a56-a1a8-aa456c83581e)
@@ -56,7 +68,7 @@
 ![image](https://github.com/user-attachments/assets/687cbd66-781f-4808-8cb5-8d0e467c99c8)
 
 
-4. JUnit Test
+5. JUnit Test
 
 - 회원가입 테스트
 ![테스트_회원가입2](https://github.com/user-attachments/assets/f85d31d9-6864-4da9-b756-ddce69440e42)
